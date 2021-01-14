@@ -1,6 +1,9 @@
-# Get a list of TODOs / Tasks from an caldav server.
+# TODOs
 
-Tested with the radicale server.
+This allows you to list, mark, edit (due dates), add todos on a caldav server.
+
+Tested with the [radicale](https://github.com/Kozea/Radicale) server, but
+should work with other caldav servers.
 
 ## Setup
 
@@ -44,3 +47,4 @@ when the due date is passed (❌) or due in 12 hours (⚠️).
 
 Due dates that are passed are at the top, then those due in 12 hours,
 then others.
+
