@@ -129,8 +129,8 @@ class CaldavClients(object):
                 dueDate = None
             info(dueDate)
             return dueDate
-        todos.sort(key=lambda todo: sortByDue(todo))
-        info([x["todo"].vtodo.due.valueRepr() for x in todos])
+        # todos.sort(key=lambda todo: sortByDue(todo))
+        # info([x["todo"].vtodo.due.valueRepr() for x in todos])
         return todos
 
     def createTodo(self, name, summary, due=None):
@@ -279,8 +279,7 @@ def buildItem(todo):
 def handleQuery(query):
     if not query.isTriggered:
         return
-
-    info(query.trigger)
+    query.disableSort()
     if query.trigger == "t ":
         return handleList(query)
     if query.trigger == "ta ":
