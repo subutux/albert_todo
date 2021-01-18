@@ -244,6 +244,8 @@ def buildItem(todo):
             urgency = ItemBase.Urgency.Notification
         else:
             subtext = "🕑 due: {:%Y-%m-%d %H:%M}".format(dueDate)
+    else:
+        dueDate = datetime.datetime.now()
 
     return Item(
         id=f'{dueDate.timestamp()}',
@@ -350,8 +352,6 @@ def handleList(query):
     items = []
     connections.refresh()
     for todo in connections.query(query.string):
-        info(todo["todo"].vtodo.summary.valueRepr())
-        info(todo["todo"].vtodo.due.valueRepr())
         items.append(buildItem(todo))
 
     return items
